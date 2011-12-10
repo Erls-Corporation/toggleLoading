@@ -1,15 +1,21 @@
 (function ($) {
 	$.fn.toggleLoading = function (config) {
 		var options = {
-				width: 42,
-				height: 42,
-				opacity: 3/4,
-				speed: 50,
-				dim: 1/2
-			};
+			dim: 1/3,
+			width: 42,
+			height: 42,
+			opacity: 3/4,
+			color: 'light',
+			image: 'images/spinner.png',
+			speed: 75
+		};
 		
 		if (config) {
 			$.extend(options, config)
+		}
+		
+		if (options.color === 'dark') {
+			options.image = 'images/spinner-white.png';
 		}
 		
 		return this.each(function () {
@@ -23,16 +29,17 @@
 					.css('opacity', options.dim)
 					.data('loading', {
 						spinner: $(document.createElement('div'))
-							.attr('id', 'spinner')
-							.insertBefore(this)
 							.css({
 								'position': 'fixed',
-								'z-index': 3,
+								'z-index': 1,
 								'width': options.width,
 								'height': options.height,
 								'opacity': options.opacity,
-								'background-image': 'url(http://dl.dropbox.com/u/32786096/spinner.png)'
-							}),
+								'background-image': 'url(' + options.image + ')'
+							})
+							.addClass('spinner')
+							.data('color', options.color)
+							.insertBefore(this),
 						interval: setInterval(function () {
 							loading.spinner.css({
 								'background-position-y': parseInt(loading.spinner.css('background-position-y'), 10) - options.height
