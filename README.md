@@ -9,3 +9,15 @@ There are currently no spinner plugins that use an alpha transparent PNG, rather
 ## How to use
 
 `$('#container').toggleLoading();`
+
+### Default options
+
+    var options = {
+			dim: 1/3,
+			width: 42,
+			height: 42,
+			opacity: 3/4,
+			color: 'light',
+			image: 'images/spinner.png',
+			speed: 75
+		};
