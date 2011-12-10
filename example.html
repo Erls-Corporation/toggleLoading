@@ -1,19 +1,84 @@
 <!doctype html>
 <html>
 	<head>
-		<meta charset=UTF-8>
+		<meta charset="UTF-8">
 		<title>jQuery Loading Plugin</title>
-		<link rel=stylesheet href=style.css>
+		<style>
+			body {
+				font: 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+				background: #eee;
+				margin: 1em;
+			}
+			
+			a {
+				color: inherit;
+			}
+			
+			section {
+				width: 100%;
+				max-width: 600px;
+				margin: auto;
+			}
+			
+			h2 {
+				font-size: 100%;
+			}
+			
+			p {
+				font-weight: 300;
+			}
+			
+			button {
+				font: inherit;
+				margin: 1em 0;
+			}
+			
+			#container {
+				width: 100%;
+				height: 200px;
+				background: white;
+				border: 1px solid black;
+			}
+		</style>
 	</head>
 	<body>
-		<h1>jQuery Loading Plugin</h1>
-		<p>This is an example of the jQuery Loading Plugin. The opacity of the loading content is dimmed, and an alpha transparent spinner is placed over the center of the container.</p>
-			<p>You can test disabling the spinner by entering <code>$('#container').toggleLoading();</code> into your console.</p>
-		<div id="container"></div>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<section>
+			<header>
+				<hgroup>
+					<h1>Loading</h1>
+					<h2>A jQuery plugin by <a href="http://twitter.com/OliverJAsh">Oliver Joseph Ash</a></h2>
+				</hgroup>
+				<a href="https://github.com/OliverJAsh/jQuery-Loading-Plugin">GitHub repository</a>
+			</header>
+			<p>This is an example of the jQuery Loading Plugin. The opacity of the loading content is dimmed, and an alpha transparent spinner is placed over the center of the container.</p>
+			<div id="container"></div>
+			<button class="toggle">Toggle loading</button>
+			<button class="color">Change color</button>
+		</section>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script src="jquery.loading-0.1.1.js"></script>
 		<script>
-			$('#container').toggleLoading();
+			var options = {},
+				$container = $('#container');
+			
+			$('.toggle').click(function () {
+				$container.toggleLoading(options);
+			}).click();
+			
+			$('.color').click(function () {
+				var color = '';
+				
+				if ($('.spinner').data('color') === 'dark') {
+					delete options.color;
+				} else {
+					color = 'black';
+					options.color = 'dark';
+				}
+				
+				$container.css('background-color', color);
+				
+				$('.toggle').click().click();
+			});
 		</script>
 	</body>
 </html>
