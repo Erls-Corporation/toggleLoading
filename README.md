@@ -6,6 +6,10 @@ This plugin is designed to place an alpha transparent PNG spinner nicely on top 
 
 `$('div').loading();`
 
+## Example
+
+http://jsfiddle.net/OliverJAsh/pQB5M/
+
 ## My first plugin
 
 This is my very first repository on GitHub, and my very first jQuery plugin too. I would really appreciate any contribution to my code, so that I can learn, and hopefully become a better coder. At the same time, the world might finally end up with a nice solution for loading ajax content.
