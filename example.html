@@ -35,9 +35,10 @@
 			
 			#container {
 				width: 100%;
-				height: 200px;
 				background: white;
 				border: 1px solid black;
+				font-size: 90%;
+				padding: 0 1em;
 			}
 		</style>
 	</head>
@@ -51,7 +52,10 @@
 				<a href="https://github.com/OliverJAsh/jQuery-Loading-Plugin">GitHub repository</a>
 			</header>
 			<p>This is an example of the jQuery Loading Plugin. The opacity of the loading content is dimmed, and an alpha transparent spinner is placed over the center of the container.</p>
-			<div id="container"></div>
+			<div id="container">
+				<p>Mauris sed purus elit. Nunc lorem enim, facilisis vel hendrerit id, mattis at nisl. Pellentesque fringilla nibh eu magna faucibus hendrerit in vel justo. Suspendisse varius eleifend lorem a pellentesque. In eu metus ac eros lobortis tincidunt eu eu felis.</p>
+				<p>Praesent in ornare diam. Mauris placerat nunc nec mauris egestas nec placerat ipsum lobortis. Suspendisse gravida ipsum in ipsum laoreet adipiscing. Aliquam erat volutpat. Curabitur scelerisque gravida leo, vel sollicitudin urna auctor vitae.</p>
+			</div>
 			<button class="toggle">Toggle loading</button>
 			<button class="color">Change color</button>
 		</section>
@@ -66,16 +70,21 @@
 			}).click();
 			
 			$('.color').click(function () {
-				var color = '';
+				var backgroundColor = '',
+					color = '';
 				
 				if ($('.spinner').data('color') === 'dark') {
 					delete options.color;
 				} else {
-					color = 'black';
+					backgroundColor = 'black',
+					color = 'white',
 					options.color = 'dark';
 				}
 				
-				$container.css('background-color', color);
+				$container.css({
+					'background-color': backgroundColor,
+					'color': color
+				});
 				
 				$('.toggle').click().click();
 			});
