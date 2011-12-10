@@ -1,7 +1,11 @@
-div {
+body {
+	font: 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background: #eee;
+}
+
+#container {
 	width: 300px;
-	height: 300px;
-	float: left;
-	background: #ccc;
-	margin: 5px;
+	height: 400px;
+	background: white;
+	border: 1px solid #ccc;
 }
