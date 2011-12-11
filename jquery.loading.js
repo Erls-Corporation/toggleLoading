@@ -6,7 +6,7 @@
 				width: 42,
 				height: 42,
 				opacity: 3 / 4,
-				color: 'light',
+				background: 'light',
 				imagesFolder: '../images',
 				speed: 75
 			};
