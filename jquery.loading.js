@@ -19,7 +19,7 @@
 			}
 		}
 		
-		image = options.imagesFolder + '/' + ((options.color === 'dark') ? 'spinner-white.png' : 'spinner.png');
+		image = options.imagesFolder + '/' + ((options.background === 'dark') ? 'spinner-white.png' : 'spinner.png');
 		
 		return this.each(function () {
 			var $this = $(this),
@@ -38,7 +38,6 @@
 							'background-image': 'url(' + image + ')'
 						})
 						.addClass('spinner')
-						.data('color', options.color)
 						.insertBefore(this),
 					interval: setInterval(function () {
 						loading.spinner.css({
