@@ -47,6 +47,11 @@
 				right: 0;
 				border: 0;
 			}
+			
+			#container.dark {
+				background: black;
+				color: white;
+			}
 		</style>
 	</head>
 	<body>
@@ -72,29 +77,19 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script src="jquery.loading.min.js"></script>
 		<script>
-			var options = {},
-				$container = $('#container');
+			var $container = $('#container'),
+				options = {
+					imagesFolder: 'images'
+				};
 			
 			$('.toggle').click(function () {
 				$container.toggleLoading(options);
 			}).click();
 			
 			$('.color').click(function () {
-				var backgroundColor = '',
-					color = '';
+				options.color = (options.color === 'dark') ? '' : 'dark';
 				
-				if ($('.spinner').data('color') === 'dark') {
-					delete options.color;
-				} else {
-					backgroundColor = 'black',
-					color = 'white',
-					options.color = 'dark';
-				}
-				
-				$container.css({
-					'background-color': backgroundColor,
-					'color': color
-				});
+				$container.toggleClass('dark');
 				
 				$('.toggle').click().click();
 			});
