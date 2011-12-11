@@ -1,5 +1,4 @@
 (function ($) {
-	
 	$.fn.toggleLoading = function (config) {
 		var options = {
 			dim: 1 / 3,
