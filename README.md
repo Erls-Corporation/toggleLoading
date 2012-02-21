@@ -1,4 +1,4 @@
-# jQuery Loading Plugin
+# toggleLoading jQuery Plugin
 
 This plugin is designed to place an alpha transparent spinner nicely on top of dynamically loading content.
 
